@@ -122,6 +122,12 @@
   .changelog-date { font-size: 14px; color: var(--primary); font-weight: 700; margin-bottom: 8px; }
   .changelog-list { margin: 0; padding-left: 20px; font-size: 13px; color: #555; line-height: 1.8; }
   .changelog-list li { margin: 2px 0; }
+  .changelog-toggle {
+    margin-top: 12px; padding: 8px 20px; background: transparent; border: 1px solid var(--primary);
+    color: var(--primary); border-radius: 6px; cursor: pointer; font-size: 13px;
+    transition: all 0.2s;
+  }
+  .changelog-toggle:hover { background: var(--primary); color: #fff; }
   @media (max-width: 768px) {
     .sidebar { display: none; }
     .main { margin-left: 0; padding: 20px; }
@@ -161,12 +167,20 @@
 
 <div class="card" style="background:linear-gradient(135deg,#fff8f6,#fff);border-left:3px solid var(--primary);">
 <h2 style="font-size:18px;border-bottom:1px solid #f0f0f0;margin-bottom:12px;">📝 最近更新</h2>
+<div class="changelog-visible">
 <div class="changelog-entry">
 <div class="changelog-date">📅 2026-07-20 · V2026.07.20</div>
 <ul class="changelog-list">
   <li>第七章 7.1：补充2026自然流量分配逻辑重构，免费擦亮权重断崖下降，新增「品质交易」策略</li>
   <li>第七章 7.2：超级擦亮本质更新为「精准流量匹配系统」，新增保本模式和多商品计划功能说明</li>
   <li>第七章 7.3：新增成长权重体系（等级L1-L7、闲气值、闲鱼币、鱼塘圈子、每日/每周任务清单）</li>
+</ul>
+</div>
+</div>
+<div id="changelog-hidden" class="changelog-hidden" style="display:none;">
+<div class="changelog-entry">
+<div class="changelog-date">📅 2026-07-20 · V2026.07.20</div>
+<ul class="changelog-list">
   <li>第二章 2.4：新增认证招商与经营资质上传全流程（6步操作+审核避坑+权益对比）</li>
   <li>第八章：新增托管无忧卖规则与运营（AI托管机制+计费规则+商家策略）</li>
   <li>第九章：新增闲鱼值得买规则与运营（入选条件+开通流程+五大运营策略）</li>
@@ -174,6 +188,8 @@
   <li>第五至第十章：新增6张AI示意图配图</li>
 </ul>
 </div>
+</div>
+<button id="changelog-toggle" class="changelog-toggle" onclick="toggleChangelog()">查看更多更新（5条）▼</button>
 
 </div>
 
@@ -1929,6 +1945,20 @@ function closeModal() {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeModal();
 });
+
+// 更新日志展开/收起
+function toggleChangelog() {
+  const hidden = document.getElementById('changelog-hidden');
+  const btn = document.getElementById('changelog-toggle');
+  if (!hidden || !btn) return;
+  if (hidden.style.display === 'none') {
+    hidden.style.display = 'block';
+    btn.textContent = '收起更新 ▲';
+  } else {
+    hidden.style.display = 'none';
+    btn.textContent = '查看更多更新 ▼';
+  }
+}
 
 // 侧边栏滚动高亮
 const sections = document.querySelectorAll('.card');
