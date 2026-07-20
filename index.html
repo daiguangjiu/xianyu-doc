@@ -84,11 +84,25 @@
     </a>
   </div>
 
+  <div class="chapters-preview" style="margin-top:40px;text-align:left;background:rgba(255,255,255,0.04);border-radius:12px;padding:24px;font-size:13px;color:#aaa;line-height:2;">
+    <strong style="color:#fff;">📚 文档目录（15章 + 附录）</strong><br>
+    第一章 平台概述与生态认知 · 第二章 账号注册与基础搭建 · 第三章 鱼小铺开通全流程<br>
+    第四章 代理商绑定与合作 · 第五章 商品发布与SEO优化 · 第六章 类目运营实战指南<br>
+    第七章 流量获取与付费投放 · <span style="color:#FF5000;">第八章 托管无忧卖规则与运营</span> · <span style="color:#FF5000;">第九章 闲鱼值得买规则与运营</span><br>
+    第十章 矩阵裂变与分层投放 · 第十一章 风控管理与风险排查 · 第十二章 合规风控与违规避坑<br>
+    第十三章 售后管理与申诉指南 · 第十四章 数据运营与考核指标 · 第十五章 官方规则精要
+  </div>
   <p class="info">
-    <strong>版本：V3.0</strong> | 基于闲鱼官方规则中心(2025.12-2026.07修订)<br>
-    管理入口：<a href="/admin/structure?secret=xianyu-admin-2025">文档结构管理</a><br>
-    编辑入口：<a href="/doc/internal?edit=true&secret=xianyu-admin-2025">在线编辑内部版</a>
+    <strong id="version-display">版本：V2026.07.20</strong> | 基于闲鱼官方规则中心 | 15章 + 附录<br>
+    管理后台：<a href="/admin?secret=xianyu-admin-2025">章节编辑管理</a><br>
+    GitHub Pages：<a href="https://daiguangjiu.github.io/xianyu-doc/" target="_blank">公网备用地址</a>
   </p>
+  <script>
+    // 动态版本号
+    const d = new Date();
+    const ver = 'V' + d.getFullYear() + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + String(d.getDate()).padStart(2,'0');
+    document.getElementById('version-display').textContent = '版本：' + ver;
+  </script>
 </div>
 </body>
 </html>
