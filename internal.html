@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>闲鱼平台运营完全手册 | 从入门到精通</title>
+<title>闲鱼平台运营完全手册 | V2026.07.20</title>
 <style>
   :root {
     --primary: #FF5000;
@@ -28,8 +28,6 @@
     line-height: 1.8;
     display: flex;
   }
-
-  /* 侧边栏 */
   .sidebar {
     position: fixed; top:0; left:0; width: var(--sidebar-width); height: 100vh;
     background: #1a1a2e; color: #ccc; overflow-y: auto; z-index: 100;
@@ -50,27 +48,20 @@
   .sidebar nav .sub { padding-left: 36px; font-size: 12px; color: #888; }
   .sidebar nav .sub:hover, .sidebar nav .sub.active { color: #ddd; }
   .sidebar .version { padding: 20px; font-size: 11px; color: #666; margin-top: 20px; border-top: 1px solid #333; }
-
-  /* 主内容 */
   .main {
     margin-left: var(--sidebar-width); flex:1; min-height: 100vh;
     padding: 40px 48px; max-width: 1100px;
   }
   .main h1 { font-size: 32px; color: var(--primary); margin-bottom: 8px; }
   .main .subtitle { color: var(--text-secondary); font-size: 15px; margin-bottom: 32px; }
-
-  /* 卡片 */
   .card {
     background: var(--card-bg); border-radius: 12px; padding: 28px 32px;
     margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,.04);
     border: 1px solid var(--border);
   }
   .card h2 { font-size: 22px; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--primary); display: flex; align-items: center; gap: 10px; }
-  .card h2 .icon { font-size: 24px; }
   .card h3 { font-size: 17px; color: var(--text); margin: 24px 0 12px; }
   .card h4 { font-size: 15px; margin: 16px 0 8px; color: var(--primary-dark); }
-
-  /* 步骤 */
   .steps { counter-reset: step; list-style: none; }
   .steps li {
     counter-increment: step; padding: 14px 14px 14px 52px; position: relative;
@@ -81,170 +72,86 @@
     width: 26px; height: 26px; background: var(--primary); color: #fff;
     border-radius: 50%; text-align: center; line-height: 26px; font-size: 13px; font-weight: 700;
   }
-  .steps li .step-img {
-    display: block; margin-top: 12px; max-width: 300px; max-height: 520px;
-    width: auto; height: auto;
-    border-radius: 10px; border: 1px solid #e0e0e0; cursor: zoom-in;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .steps li .step-img:hover {
-    transform: scale(1.02); box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  }
-  .step-img-caption {
-    display: block; font-size: 12px; color: #999; margin-top: 6px; margin-bottom: 4px;
-    font-style: italic;
-  }
-  /* 通用图片展示 */
   .doc-img {
     display: block; max-width: 300px; max-height: 520px;
     width: auto; height: auto; margin: 12px 0;
     border-radius: 10px; border: 1px solid #e0e0e0; cursor: zoom-in;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s;
   }
-  .doc-img:hover {
-    transform: scale(1.02); box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  .doc-img:hover { transform: scale(1.02); box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+  .doc-img-caption { font-size: 12px; color: #999; margin-top: 6px; font-style: italic; }
+  table {
+    width: 100%; border-collapse: collapse; margin: 16px 0;
+    font-size: 14px; line-height: 1.6;
   }
-  .doc-img-caption {
-    display: block; font-size: 12px; color: #999; margin-top: 4px;
-    font-style: italic;
+  thead th {
+    background: #fafafa; padding: 12px 16px; text-align: left;
+    font-weight: 600; color: #666; border-bottom: 2px solid var(--border);
+    font-size: 13px;
   }
-
-  /* 图片放大遮罩 */
+  tbody td {
+    padding: 10px 16px; border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+  }
+  tbody tr:hover { background: #fafafa; }
+  .tag {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 11px; font-weight: 600;
+  }
+  .tag-green { background: #f6ffed; color: #52c41a; border: 1px solid #b7eb8f; }
+  .tag-red { background: #fff2f0; color: #ff4d4f; border: 1px solid #ffccc7; }
+  .tag-orange { background: #fff7e6; color: #fa8c16; border: 1px solid #ffd591; }
+  .tip-box { background: #e6f7ff; border-left: 3px solid #1890ff; padding: 10px 14px; border-radius: 6px; margin: 10px 0; font-size: 13px; }
+  .warning-box, .warning { background: #fffbe6; border-left: 3px solid #faad14; padding: 10px 14px; border-radius: 6px; margin: 10px 0; font-size: 13px; }
+  .danger-box { background: #fff2f0; border-left: 3px solid #ff4d4f; padding: 10px 14px; border-radius: 6px; margin: 10px 0; font-size: 13px; }
+  ul, ol { padding-left: 24px; }
+  li { margin: 6px 0; }
+  .checklist { list-style: none; padding-left: 0; }
+  .checklist li { padding: 6px 0 6px 28px; position: relative; }
+  .checklist li::before { content: "☐"; position: absolute; left: 4px; color: var(--primary); }
   .img-modal {
-    display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100vw; height: 100vh;
-    background: rgba(0,0,0,0.85); align-items: center; justify-content: center; cursor: zoom-out;
+    display: none; position: fixed; top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.9); z-index: 9999; cursor: zoom-out;
+    align-items: center; justify-content: center;
   }
   .img-modal.active { display: flex; }
-  .img-modal img {
-    max-width: 90vw; max-height: 90vh; border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-  }
-  .img-modal .close-btn {
-    position: absolute; top: 20px; right: 30px; color: #fff; font-size: 36px; font-weight: 300;
-  }
-
-  /* 表格 */
-  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
-  thead th { background: #fff7f0; color: var(--primary-dark); font-weight: 600; padding: 10px 14px; text-align: left; border-bottom: 2px solid var(--primary); }
-  tbody td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
-  tbody tr:hover { background: #fafafa; }
-
-  /* 标签 */
-  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin: 0 2px; }
-  .tag-red { background: #fff1f0; color: var(--danger); }
-  .tag-green { background: #f6ffed; color: var(--success); }
-  .tag-orange { background: #fff7e6; color: var(--warning); }
-  .tag-blue { background: #e6f7ff; color: var(--info); }
-
-  /* 提示框 */
-  .tip, .warning, .danger-box {
-    padding: 14px 18px; border-radius: 8px; margin: 16px 0; font-size: 14px; line-height: 1.7;
-  }
-  .tip { background: #e6f7ff; border-left: 4px solid var(--info); }
-  .warning { background: #fff7e6; border-left: 4px solid var(--warning); }
-  .danger-box { background: #fff1f0; border-left: 4px solid var(--danger); }
-
-  .tip::before { content: "💡 提示："; font-weight: 700; color: var(--info); }
-  .warning::before { content: "⚠️ 注意："; font-weight: 700; color: var(--warning); }
-  .danger-box::before { content: "🚫 红线："; font-weight: 700; color: var(--danger); }
-
-  /* checklist */
-  .checklist { list-style: none; }
-  .checklist li { padding: 6px 0; font-size: 14px; }
-  .checklist li::before { content: "☐ "; color: var(--primary); font-weight: 700; margin-right: 6px; }
-
-  /* 响应式 */
-  @media (max-width: 900px) {
+  .img-modal img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
+  @media (max-width: 768px) {
     .sidebar { display: none; }
     .main { margin-left: 0; padding: 20px; }
   }
-
-  .footer-note {
-    background: linear-gradient(135deg, #fff7f0, #fff1f0);
-    border: 2px solid var(--primary);
-    border-radius: 12px; padding: 24px 32px; margin-top: 32px;
-  }
-  .footer-note h3 { color: var(--primary-dark); margin-bottom: 12px; }
-  .footer-note ul { padding-left: 20px; }
-  .footer-note li { margin-bottom: 8px; font-size: 14px; }
-
-  .anchor { display: block; position: relative; top: -80px; visibility: hidden; }
 </style>
 </head>
 <body>
-
-<!-- 图片放大弹窗 -->
-<div class="img-modal" id="imgModal" onclick="closeModal()">
-  <span class="close-btn">&times;</span>
-  <img src="" alt="放大查看" id="modalImg">
+<div class="sidebar">
+  <div class="logo">🐟 闲鱼<span>运营手册</span></div>
+  <nav>
+    <a href="#card_0">📖 第一章 平台概述与生态认知</a>
+    <a href="#card_1">🔑 第二章 账号注册与基础搭建</a>
+    <a href="#card_2">🏪 第三章 鱼小铺开通全流程</a>
+    <a href="#card_3">🤝 第四章 代理商绑定与合作</a>
+    <a href="#card_4">📝 第五章 商品发布与SEO优化</a>
+    <a href="#card_5">📦 第六章 类目运营实战指南</a>
+    <a href="#card_6">📈 第七章 流量获取与付费投放</a>
+    <a href="#card_7">🔗 第八章 矩阵裂变与分层投放</a>
+    <a href="#card_8">🚨 第九章 风控管理与风险排查</a>
+    <a href="#card_9">🛡️ 第十章 合规风控与违规避坑</a>
+    <a href="#card_10">🔧 第十一章 售后管理与申诉指南</a>
+    <a href="#card_11">📊 第十二章 数据运营与考核指标</a>
+    <a href="#card_12">📜 第十三章 官方规则精要（基于规则中心 2025-2026 版）</a>
+    <a href="#card_14">🤖 第十四章 托管无忧卖规则与运营</a>
+    <a href="#card_15">⭐ 第十五章 闲鱼值得买规则与运营</a>
+    <a href="#card_13" class="sub">附录 执行标准与待办清单</a>
+  </nav>
+  <div class="version">
+    V2026.07.20 | 内部版本<br>
+    16个章节 | 持续更新中
+  </div>
 </div>
 
-<script>
-  function openModal(src) {
-    document.getElementById('modalImg').src = src;
-    document.getElementById('imgModal').classList.add('active');
-  }
-  function closeModal() {
-    document.getElementById('imgModal').classList.remove('active');
-  }
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModal();
-  });
-</script>
-
-<!-- 侧边栏导航 -->
-<aside class="sidebar">
-  <div class="logo">🐟 闲鱼运营<span>完全手册</span></div>
-  <nav>
-    <a href="#ch1">第一章 平台概述与生态认知</a>
-    <a href="#ch2">第二章 账号注册与基础搭建</a>
-    <a href="#ch2-1" class="sub">2.1 注册流程</a>
-    <a href="#ch2-2" class="sub">2.2 实名认证</a>
-    <a href="#ch2-3" class="sub">2.3 芝麻信用与闲气值</a>
-    <a href="#ch3">第三章 鱼小铺开通全流程</a>
-    <a href="#ch3-1" class="sub">3.1 开通条件</a>
-    <a href="#ch3-2" class="sub">3.2 快速开通实操</a>
-    <a href="#ch3-3" class="sub">3.3 常见问题</a>
-    <a href="#ch4">第四章 代理商绑定与合作</a>
-    <a href="#ch5">第五章 商品发布与SEO优化</a>
-    <a href="#ch6">第六章 类目运营实战指南</a>
-    <a href="#ch6-1" class="sub">6.1 数码3C</a>
-    <a href="#ch6-2" class="sub">6.2 服饰鞋包</a>
-    <a href="#ch6-3" class="sub">6.3 家居百货</a>
-    <a href="#ch6-4" class="sub">6.4 美妆个护</a>
-    <a href="#ch6-5" class="sub">6.5 宠物用品</a>
-    <a href="#ch6-6" class="sub">6.6 虚拟/服务类</a>
-    <a href="#ch7">第七章 流量获取与付费投放</a>
-    <a href="#ch7-1" class="sub">7.1 自然流量策略</a>
-    <a href="#ch7-2" class="sub">7.2 超级擦亮投放</a>
-    <a href="#ch8">第八章 矩阵裂变与分层投放</a>
-    <a href="#ch9">第九章 风控管理与风险排查</a>
-    <a href="#ch9-1" class="sub">9.1 风控预防体系</a>
-    <a href="#ch9-2" class="sub">9.2 常见风险类型与识别</a>
-    <a href="#ch9-3" class="sub">9.3 风险出现后排查处理</a>
-    <a href="#ch9-4" class="sub">9.4 矩阵关联风控与隔离</a>
-    <a href="#ch10">第十章 合规风控与违规避坑</a>
-    <a href="#ch11">第十一章 售后管理与申诉指南</a>
-    <a href="#ch12">第十二章 数据运营与考核指标</a>
-    <a href="#ch13">第十三章 官方规则精要</a>
-    <a href="#ch13-1" class="sub">13.1 服务费规则</a>
-    <a href="#ch13-2" class="sub">13.2 经营性行为界定</a>
-    <a href="#ch13-3" class="sub">13.3 保证金规范</a>
-    <a href="#ch13-4" class="sub">13.4 七天无理由退货</a>
-    <a href="#ch13-5" class="sub">13.5 鱼小铺管理规范</a>
-    <a href="#ch13-6" class="sub">13.6 信息发布违禁清单</a>
-    <a href="#ch13-7" class="sub">13.7 违规扣分体系</a>
-    <a href="#ch13-8" class="sub">13.8 交易争议处理</a>
-    <a href="#appendix">附录 执行标准与待办清单</a>
-  </nav>
-  <div class="version">版本：V3.0 | 更新：2025年Q3<br>基于闲鱼官方规则中心(2025.12修订)<br>适用：团队内部 + 客户交付</div>
-</aside>
-
-<!-- 主内容 -->
-<main class="main">
-
+<div class="main">
 <h1>🐟 闲鱼平台运营完全手册</h1>
-<p class="subtitle"><span style="background:#FF5000;color:#fff;padding:2px 10px;border-radius:4px;font-size:12px;margin-right:8px;">🔒 内部版本</span>从账号注册、鱼小铺开通到矩阵裂变投放，覆盖全类目运营细节与合规风控 —— 一份手册，全员通用</p>
+<p class="subtitle"><span style="background:#FF5000;color:#fff;padding:2px 10px;border-radius:4px;font-size:12px;margin-right:8px;">🔒 内部版本</span>从入门到精通 | V2026.07.20 | 基于闲鱼官方规则中心 | 16章 + 附录</p>
 
 
 <!-- ===== 📖 第一章 平台概述与生态认知 ===== -->
@@ -257,7 +164,7 @@
   <tbody>
     <tr><td>注册用户</td><td>超 6 亿</td><td>用户池大，流量红利仍在</td></tr>
     <tr><td>月活跃用户（MAU）</td><td>约 2 亿</td><td>高频使用，适合长期经营</td></tr>
-    <tr><td>Z世代占比</td><td>43%</td><td>年轻用户主导，内容/社区化运营关键</td></tr>
+    <tr><td>90后 / Z世代占比</td><td>60% / 43%</td><td>年轻用户主导，内容/社区化运营关键</td></tr>
     <tr><td>日均发布商品</td><td>超 500 万件</td><td>竞争激烈，SEO优化是基础能力</td></tr>
     <tr><td>平台定位演变</td><td>C2C → C2C+B2C</td><td>闲鱼奥莱上线，品牌商家加速入驻</td></tr>
   </tbody>
@@ -283,7 +190,8 @@
     <tr><td>用户心智</td><td>淘二手/捡漏/性价比</td><td>品牌正品/新货</td><td>低价/拼团</td></tr>
     <tr><td>内容属性</td><td><span class="tag tag-blue">强社区</span>（会玩/鱼塘）</td><td>弱</td><td>弱</td></tr>
     <tr><td>复购逻辑</td><td>关注+粉丝关系链</td><td>搜索+推荐</td><td>推荐+游戏化</td></tr>
-    <tr><td>付费推广</td><td>超级擦亮（CPM竞价）</td><td>直通车/引力魔方</td><td>多多搜索/全站推广</td></tr>
+    <tr><td>免费流量</td><td><span class="tag tag-red">低门槛</span> 托管无忧卖<br><span class="tag tag-red">鱼小铺L3以上</span> 闲鱼值得买</td><td>亿级流量扶持<br>官方推荐扶持</td><td>托管+推荐</td></tr>
+    <tr><td>付费推广</td><td>超级擦亮（CPM竞价）<br>线索通（例子线索）<br>黄金首位（首屏曝光）</td><td>直通车/引力魔方</td><td>多多搜索/全站推广</td></tr>
   </tbody>
 </table>
 </div>
@@ -1298,6 +1206,302 @@
 <div class="tip">以上规则均可通过闲鱼APP「我的 → 设置 → 闲鱼公约」查看全文。建议每月1日定期检查规则更新。</div>
 </div>
 
+<!-- ===== 🤖 第十四章 托管无忧卖规则与运营 ===== -->
+<span class="anchor" id="card_14"></span>
+<div class="card">
+<h2>🤖 第十四章 托管无忧卖规则与运营</h2>
+<h3>14.1 什么是托管无忧卖？</h3>
+
+<div class="tip-box">闲鱼「无忧卖」是平台面向经营型卖家推出的<strong>AI全托管运营服务</strong>。卖家提供商品和底价，平台AI接管客服、定价、商品优化等运营环节，帮助商品快速售出。2026年7月1日升级为全托管模式，权限和机制发生重大变化。</div>
+
+<h3>14.2 无忧卖核心机制（2026年7月版）</h3>
+
+<table>
+  <thead><tr><th>运营环节</th><th>旧版（2025）</th><th>新版（2026.7）</th></tr></thead>
+  <tbody>
+    <tr><td><strong>商品编辑权</strong></td><td>双向锁定（卖家+平台均不可改）</td><td>平台AI可自主修改，卖家不可改</td></tr>
+    <tr><td><strong>定价机制</strong></td><td>卖家设定固定价格</td><td>卖家设底价，AI动态调价（底价以上）</td></tr>
+    <tr><td><strong>客服接待</strong></td><td>卖家自行回复</td><td>AI以卖家身份自动接待，24小时在线</td></tr>
+    <tr><td><strong>商品优化</strong></td><td>卖家手动优化</td><td>AI自动调整标题、主图、详情文案</td></tr>
+    <tr><td><strong>准入方式</strong></td><td>平台邀约制</td><td>卖家自主申报 + 平台审核</td></tr>
+    <tr><td><strong>计费模式</strong></td><td>按类目固定费率</td><td>14天3.5% / 7天7% / 3天10%；单笔封顶500元</td></tr>
+  </tbody>
+</table>
+
+<h3>14.3 三项AI自动化运营能力</h3>
+
+<h4>1. 智能客服托管</h4>
+<ul>
+  <li>系统以卖家账号身份自动接待买家咨询</li>
+  <li>参考商品参数、底价、行业数据生成回复话术</li>
+  <li>实现24小时无人值守接待，提升响应速度</li>
+  <li><strong>注意</strong>：AI生成话术如有不实承诺，法律和平台责任归卖家</li>
+</ul>
+
+<h4>2. 动态智能调价</h4>
+<ul>
+  <li>底价为价格下限，算法依据全网同款成交价自主调整售价</li>
+  <li>店铺内开启的小刀、满减等优惠会自动叠加计算</li>
+  <li>实际成交价可能低于卖家预期——<strong>底价务必预留利润缓冲</strong></li>
+</ul>
+
+<h4>3. 商品智能优化</h4>
+<ul>
+  <li>平台大数据自动调整标题关键词、主图排序、详情文案</li>
+  <li>系统自主完成流量优化动作，无需卖家审核确认</li>
+  <li>成熟爆款谨慎托管：AI改动可能破坏已稳定的人群标签</li>
+</ul>
+
+<h3>14.4 计费规则详解</h3>
+
+<table>
+  <thead><tr><th>服务周期</th><th>费率</th><th>适用场景</th></tr></thead>
+  <tbody>
+    <tr><td><strong>14天</strong></td><td>3.5%</td><td>长周期商品、库存充裕、不急出</td></tr>
+    <tr><td><strong>7天</strong></td><td>7%</td><td>中等周期、常规清库存</td></tr>
+    <tr><td><strong>3天</strong></td><td>10%</td><td>急需出售、快速回款</td></tr>
+  </tbody>
+</table>
+
+<div class="warning-box">
+  <strong>计费关键规则：</strong><br>
+  • 未归入指定费率类目的商品，执行统一最高费率<br>
+  • 刻意错放类目避费 → 追加处罚<br>
+  • 卖家责任导致退货 → 服务费不予返还，往返运费卖家自理<br>
+  • 绝大多数类目单笔服务费封顶500元
+</div>
+
+<h3>14.5 履约与处罚规则</h3>
+
+<table>
+  <thead><tr><th>行为</th><th>后果</th></tr></thead>
+  <tbody>
+    <tr><td><strong>无故关闭订单</strong></td><td>账号降权 + 流量限制</td></tr>
+    <tr><td><strong>引导站外交易/私下付款</strong></td><td>罚款1.5倍 + 店铺限流降权</td></tr>
+    <tr><td><strong>提报后修改商品信息</strong></td><td>不可修改（提交前务必逐项核验）</td></tr>
+    <tr><td><strong>延迟发货/虚假发货</strong></td><td>按平台规则扣分，严重者清退无忧卖资格</td></tr>
+  </tbody>
+</table>
+
+<div class="danger-box"><strong>核心权责红线：</strong>AI生成的客服话术、系统自动修改的商品图文信息，法律与平台规则层面均归属卖家行为。由此衍生的售后退款、纠纷赔付、违规扣分、限流处罚，全部责任与经济损失由卖家独自承担。平台仅提供技术工具，不承担兜底责任。</div>
+
+<h3>14.6 商家运营策略：如何用好无忧卖</h3>
+
+<h4>✅ 适合开通无忧卖的商家</h4>
+<table>
+  <thead><tr><th>特征</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td><strong>标准化货源</strong></td><td>全新品/标品，成色统一，无个体差异</td></tr>
+    <tr><td><strong>高利润商品</strong></td><td>毛利率≥40%，能覆盖3.5%-10%服务费</td></tr>
+    <tr><td><strong>低售后类目</strong></td><td>退货率低、纠纷少（如日用百货、图书文具）</td></tr>
+    <tr><td><strong>人力不足</strong></td><td>没有专职客服和运营人员，需要AI托管</td></tr>
+    <tr><td><strong>库存量大</strong></td><td>商品数量多，手动运营成本高</td></tr>
+  </tbody>
+</table>
+
+<h4>❌ 不建议开通的商家</h4>
+<table>
+  <thead><tr><th>特征</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td><strong>二手非标品</strong></td><td>成色差异大，AI无法准确描述瑕疵</td></tr>
+    <tr><td><strong>薄利商品</strong></td><td>毛利率＜25%，服务费会吃掉大部分利润</td></tr>
+    <tr><td><strong>高退货率类目</strong></td><td>退货不退服务费，双重损失</td></tr>
+    <tr><td><strong>成熟爆款</strong></td><td>AI改动可能破坏已稳定的人群标签和搜索权重</td></tr>
+  </tbody>
+</table>
+
+<h4>🔧 实操五步法</h4>
+<ol class="steps">
+  <li><strong>底价定价留缓冲</strong>：底价 = 成本价 + 服务费 + 运费 + 至少15%利润缓冲。算法会向下调价，底价定太低可能亏本。</li>
+  <li><strong>原始文案标准化</strong>：在提报前完整标注成色、瑕疵、售后边界、发货时效。AI在此基础上优化，减少描述偏差风险。</li>
+  <li><strong>库存分批提报</strong>：不要一次性把所有库存提交无忧卖。分批次少量提报，降低滞销和降价风险。</li>
+  <li><strong>小批量灰度测试</strong>：先用3-5个商品测试AI调价逻辑、客服话术、图文修改规律，验证后再批量上线。</li>
+  <li><strong>定期复盘调整</strong>：每周检查无忧卖商品的成交价、退货率、客服评价，发现异常及时关闭托管。</li>
+</ol>
+
+<h4>📊 无忧卖 vs 自主运营对比</h4>
+<table>
+  <thead><tr><th>维度</th><th>无忧卖托管</th><th>自主运营</th></tr></thead>
+  <tbody>
+    <tr><td><strong>时间投入</strong></td><td>低（AI接管日常运营）</td><td>高（需全天候运营）</td></tr>
+    <tr><td><strong>定价控制</strong></td><td>弱（AI动态调价）</td><td>强（完全自主定价）</td></tr>
+    <tr><td><strong>流量获取</strong></td><td>有平台流量加权</td><td>靠自然流量+付费推广</td></tr>
+    <tr><td><strong>客服质量</strong></td><td>AI 24小时在线，但可能答非所问</td><td>人工回复，质量可控</td></tr>
+    <tr><td><strong>商品描述</strong></td><td>AI自动优化，可能失真</td><td>完全可控，真实准确</td></tr>
+    <tr><td><strong>成本</strong></td><td>3.5%-10%服务费</td><td>人力+时间成本</td></tr>
+    <tr><td><strong>风险</strong></td><td>AI行为归责卖家，不可控风险高</td><td>风险完全自控</td></tr>
+  </tbody>
+</table>
+
+<h3>14.7 关键注意事项</h3>
+<div class="danger-box">
+  <strong>⚠️ 三条底线：</strong><br>
+  1. <strong>底价≠售价</strong>：底价是下限，不是建议售价。务必留足利润空间。<br>
+  2. <strong>退货损失翻倍</strong>：退货不仅损失运费，服务费也不退，薄利商品尤其谨慎。<br>
+  3. <strong>AI言论你买单</strong>：AI客服做出的任何承诺，法律责任全归卖家。
+</div>
+
+<h3>14.8 无忧卖与矩阵运营的结合策略</h3>
+<table>
+  <thead><tr><th>策略</th><th>操作方式</th></tr></thead>
+  <tbody>
+    <tr><td><strong>分层测试</strong></td><td>用1-2个低权重账号开通无忧卖做测试，核心账号保持自主运营</td></tr>
+    <tr><td><strong>品类分离</strong></td><td>标准化商品走无忧卖，非标品/高价值商品自主运营</td></tr>
+    <tr><td><strong>库存对冲</strong></td><td>同一商品在无忧卖和自主运营账号各放一部分，对比成交效果</td></tr>
+    <tr><td><strong>周期轮换</strong></td><td>无忧卖商品售罄后，新一批商品先自主运营养权重，再决定是否托管</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== ⭐ 第十五章 闲鱼值得买规则与运营 ===== -->
+<span class="anchor" id="card_15"></span>
+<div class="card">
+<h2>⭐ 第十五章 闲鱼值得买规则与运营</h2>
+<h3>15.1 什么是「闲鱼值得买」？</h3>
+
+<div class="tip-box">「闲鱼值得买」是闲鱼平台推出的<strong>官方精选推荐频道</strong>，为优质商品提供亿级流量曝光扶持。入选「值得买」的商品将获得平台专属推荐位、搜索加权、频道内展示等多项流量权益。该频道于2024年底上线，是鱼小铺卖家的核心流量增长渠道之一。</div>
+
+<h3>15.2 值得买的流量价值</h3>
+
+<table>
+  <thead><tr><th>流量权益</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td><strong>专属频道展示</strong></td><td>在闲鱼APP「值得买」频道内获得推荐位展示</td></tr>
+    <tr><td><strong>搜索加权</strong></td><td>入选商品在搜索结果中获得更高排名</td></tr>
+    <tr><td><strong>首页推荐</strong></td><td>有机会进入闲鱼首页「猜你喜欢」等高曝光位置</td></tr>
+    <tr><td><strong>活动优先权</strong></td><td>平台大促、主题活动优先参与资格</td></tr>
+    <tr><td><strong>标签展示</strong></td><td>商品详情页展示「值得买」认证标签，提升转化率</td></tr>
+  </tbody>
+</table>
+
+<div class="warning-box"><strong>核心认知：</strong>「值得买」不是付费推广，是平台基于商品质量+价格力的免费精选推荐。入选后的流量是平台额外给予的，不需要额外付费。但入选标准高，需要主动经营。</div>
+
+<h3>15.3 入选条件与标准</h3>
+
+<h4>账号层面要求</h4>
+<table>
+  <thead><tr><th>条件</th><th>具体要求</th></tr></thead>
+  <tbody>
+    <tr><td><strong>鱼小铺状态</strong></td><td>必须已开通鱼小铺，且状态正常</td></tr>
+    <tr><td><strong>信用评级</strong></td><td>卖家信用评级达到B级及以上（2026年新体系）</td></tr>
+    <tr><td><strong>违规记录</strong></td><td>近90天无违规扣分记录</td></tr>
+    <tr><td><strong>交易表现</strong></td><td>近30天交易成功率≥95%，响应率≥90%</td></tr>
+    <tr><td><strong>退货率</strong></td><td>近30天退货率＜5%</td></tr>
+  </tbody>
+</table>
+
+<h4>商品层面要求</h4>
+<table>
+  <thead><tr><th>条件</th><th>具体要求</th></tr></thead>
+  <tbody>
+    <tr><td><strong>价格力</strong></td><td>商品价格低于或等于同款全网均价（平台自动比价）</td></tr>
+    <tr><td><strong>商品质量</strong></td><td>描述清晰准确、主图优质、无虚假宣传</td></tr>
+    <tr><td><strong>库存保障</strong></td><td>有实际库存，非空挂/代发虚假库存</td></tr>
+    <tr><td><strong>类目合规</strong></td><td>商品归属类目正确，非禁售/限制品类</td></tr>
+    <tr><td><strong>成交数据</strong></td><td>商品有稳定成交记录（建议至少3笔以上真实成交）</td></tr>
+  </tbody>
+</table>
+
+<h3>15.4 如何开通「值得买」</h3>
+
+<ol class="steps">
+  <li><strong>确保基础达标</strong>：确认鱼小铺已开通、信用评级B级以上、近90天无违规。</li>
+  <li><strong>进入申请入口</strong>：闲鱼APP → 我的 → 卖家中心 → 鱼小铺 → 「值得买」频道 → 点击「申请开通」。</li>
+  <li><strong>选择提报商品</strong>：从在售商品中选择符合价格力和质量要求的商品提交审核。</li>
+  <li><strong>等待平台审核</strong>：审核周期通常为1-3个工作日，审核结果通过站内信通知。</li>
+  <li><strong>审核通过后运营</strong>：入选商品获得「值得买」标签和流量加权，持续维护商品数据。</li>
+</ol>
+
+<div class="tip-box"><strong>提示：</strong>如果申请入口不可见，说明账号暂不满足基础条件。优先提升信用评级、降低退货率、积累成交数据后再申请。</div>
+
+<h3>15.5 商家运营策略：如何持续获得值得买流量</h3>
+
+<h4>策略一：价格力是核心门槛</h4>
+<ul>
+  <li>定期对比同款商品的全网售价，保持价格竞争力</li>
+  <li>不要盲目降价——结合优惠券、满减、赠品等组合提升「感知性价比」</li>
+  <li>新品上架时可以适当让利，快速积累成交后申请值得买</li>
+</ul>
+
+<h4>策略二：商品质量是长期通行证</h4>
+<ul>
+  <li>主图使用实拍图，避免过度PS（平台会检测图片真实性）</li>
+  <li>描述中明确标注成色、瑕疵、规格参数，减少退货纠纷</li>
+  <li>保持好评率≥98%，差评会影响整个店铺的值得买资格</li>
+</ul>
+
+<h4>策略三：数据维护是持续保障</h4>
+<table>
+  <thead><tr><th>指标</th><th>维护目标</th><th>维护方法</th></tr></thead>
+  <tbody>
+    <tr><td><strong>响应率</strong></td><td>≥95%</td><td>开启自动回复，30分钟内响应所有咨询</td></tr>
+    <tr><td><strong>交易成功率</strong></td><td>≥95%</td><td>不无故关闭订单，库存不足及时下架</td></tr>
+    <tr><td><strong>退货率</strong></td><td>＜5%</td><td>发货前检查商品质量，描述与实物一致</td></tr>
+    <tr><td><strong>好评率</strong></td><td>≥98%</td><td>主动跟进售后，问题商品及时处理</td></tr>
+  </tbody>
+</table>
+
+<h4>策略四：商品汰换机制</h4>
+<ul>
+  <li>入选值得买的商品如果数据下滑（转化率降低、退货率上升），及时替换</li>
+  <li>保持值得买频道内有3-5个活跃商品，形成稳定流量池</li>
+  <li>新品先在普通渠道验证数据（成交≥3笔、转化率≥3%），再申请值得买</li>
+</ul>
+
+<h4>策略五：矩阵联动放大流量</h4>
+<ul>
+  <li>核心账号的值得买商品作为「流量锚点」，带动店铺其他商品曝光</li>
+  <li>值得买商品详情页中嵌入店铺其他商品的推荐链接</li>
+  <li>同一商品在不同矩阵账号中差异化定价，选择数据最好的账号申请值得买</li>
+</ul>
+
+<h3>15.6 值得买与无忧卖的协同策略</h3>
+
+<table>
+  <thead><tr><th>场景</th><th>推荐方案</th></tr></thead>
+  <tbody>
+    <tr><td><strong>高利润标品</strong></td><td>值得买获取流量 + 无忧卖AI托管运营，双重加持</td></tr>
+    <tr><td><strong>价格敏感品</strong></td><td>先以低价入选值得买获取流量，稳定后适度提价</td></tr>
+    <tr><td><strong>新品测试</strong></td><td>先自主运营养数据，入选值得买后再考虑是否开通无忧卖</td></tr>
+    <tr><td><strong>库存清仓</strong></td><td>开通无忧卖短期（3天/10%）快速出清，不值得申请值得买</td></tr>
+  </tbody>
+</table>
+
+<h3>15.7 常见问题与避坑指南</h3>
+
+<table>
+  <thead><tr><th>问题</th><th>解答</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Q: 值得买需要付费吗？</strong></td><td>不需要。值得买是免费精选推荐，非付费推广产品。</td></tr>
+    <tr><td><strong>Q: 入选后可以修改商品信息吗？</strong></td><td>可以修改，但大幅修改（尤其是价格上调）可能导致被移出值得买。</td></tr>
+    <tr><td><strong>Q: 多久审核一次？</strong></td><td>提交申请后1-3个工作日审核。已入选商品平台会定期复检。</td></tr>
+    <tr><td><strong>Q: 可以提交多少个商品？</strong></td><td>根据账号等级不同，通常可同时有5-20个商品在值得买频道。</td></tr>
+    <tr><td><strong>Q: 被移出值得买后还能再申请吗？</strong></td><td>可以。分析被移除原因、整改后重新申请。建议间隔至少7天。</td></tr>
+    <tr><td><strong>Q: 虚拟商品可以申请吗？</strong></td><td>目前值得买主要面向实物商品，虚拟商品入选难度较大。</td></tr>
+  </tbody>
+</table>
+
+<div class="warning-box">
+  <strong>⚠️ 避坑提醒：</strong><br>
+  • 不要为了入选值得买而恶意低价（低于成本价），平台会检测异常定价<br>
+  • 入选后不要大幅提价，会导致被移出且影响后续申请<br>
+  • 值得买流量是「锦上添花」，不是「雪中送炭」——商品本身质量是基础<br>
+  • 不要同时用多个账号对同一商品申请值得买，可能被判定为操纵流量
+</div>
+
+<h3>15.8 值得买运营节奏建议</h3>
+
+<table>
+  <thead><tr><th>阶段</th><th>时间</th><th>核心动作</th></tr></thead>
+  <tbody>
+    <tr><td><strong>准备期</strong></td><td>第1-2周</td><td>提升账号信用评级至B级以上，降低退货率至5%以下，优化商品主图和描述</td></tr>
+    <tr><td><strong>申请期</strong></td><td>第3周</td><td>选择3-5个数据最好的商品提交值得买申请</td></tr>
+    <tr><td><strong>爬坡期</strong></td><td>第4-6周</td><td>入选后密切监控转化率、退货率，保持响应速度，积累好评</td></tr>
+    <tr><td><strong>稳定期</strong></td><td>第7周起</td><td>持续维护核心指标，定期汰换表现差的商品，保持3-5个活跃值得买商品</td></tr>
+  </tbody>
+</table>
+</div>
+
 <!-- ===== 📋 附录：执行标准与待办清单 ===== -->
 <span class="anchor" id="card_13"></span>
 <div class="card">
@@ -1347,10 +1551,42 @@
 </table>
 </div>
 
-<p style="text-align:center;color:#999;font-size:12px;margin-top:32px;">
-  闲鱼平台运营完全手册 V3.0 | 内部版本 | © 2025 团队版权所有 | 基于闲鱼官方规则中心(2025.12-2026.07修订) | 最后更新：2025年Q3
-</p>
 
-</main>
+<p style="text-align:center;color:#999;font-size:12px;margin-top:32px;">闲鱼平台运营完全手册 V2026.07.20 | 内部版本 | © 2025 团队版权所有 | 基于闲鱼官方规则中心 | 最后更新：V2026.07.20</p>
+</div>
+
+<div class="img-modal" id="imgModal" onclick="closeModal()">
+  <img id="modalImg" src="" alt="放大图片">
+</div>
+
+<script>
+function openModal(src) {
+  document.getElementById('modalImg').src = src;
+  document.getElementById('imgModal').classList.add('active');
+}
+function closeModal() {
+  document.getElementById('imgModal').classList.remove('active');
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+// 侧边栏滚动高亮
+const sections = document.querySelectorAll('.card');
+const navLinks = document.querySelectorAll('.sidebar nav a');
+window.addEventListener('scroll', function() {
+  let current = '';
+  sections.forEach(function(section) {
+    const top = section.offsetTop - 100;
+    if (window.scrollY >= top) {
+      current = section.querySelector('h2') ? section.id || '' : current;
+    }
+  });
+  navLinks.forEach(function(link) {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+  });
+});
+</script>
 </body>
 </html>
