@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>闲鱼运营手册 - 在线文档平台</title>
+<style>
+  :root {
+    --primary: #FF5000;
+    --primary-dark: #D44500;
+    --bg: #f7f8fa;
+    --card-bg: #ffffff;
+    --text: #1a1a2e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .container { max-width: 720px; width: 100%; text-align: center; }
+  .logo {
+    font-size: 48px; font-weight: 800; margin-bottom: 8px;
+    background: linear-gradient(135deg, #FF5000, #FF7A45);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .subtitle { color: #aaa; font-size: 16px; margin-bottom: 48px; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+  .card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 32px 24px; text-align: left;
+    text-decoration: none; color: #fff; transition: all 0.3s;
+    backdrop-filter: blur(10px);
+  }
+  .card:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+  }
+  .card .icon { font-size: 32px; margin-bottom: 12px; display: block; }
+  .card h3 { font-size: 18px; margin-bottom: 8px; }
+  .card p { color: #999; font-size: 13px; line-height: 1.6; }
+  .card.internal { border-left: 3px solid var(--primary); }
+  .card.client { border-left: 3px solid #1890ff; }
+  .badge {
+    display: inline-block; padding: 3px 10px; border-radius: 12px;
+    font-size: 11px; font-weight: 700; margin-bottom: 8px;
+  }
+  .badge-internal { background: rgba(255,80,0,0.2); color: #FF5000; }
+  .badge-client { background: rgba(24,144,255,0.2); color: #1890ff; }
+  .info { color: #666; font-size: 12px; margin-top: 32px; line-height: 1.8; }
+  .info a { color: #FF5000; text-decoration: none; }
+  @media (max-width: 600px) {
+    .cards { grid-template-columns: 1fr; }
+    .logo { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="logo">🐟 闲鱼运营手册</div>
+  <p class="subtitle">在线文档协作平台 · 团队内部版 + 客户交付版</p>
+
+  <div class="cards">
+    <a href="internal.html" class="card internal">
+      <span class="icon">🔒</span>
+      <span class="badge badge-internal">内部版本</span>
+      <h3>内部执行版</h3>
+      <p>包含完整运营策略、成本数据、投放细节、代理商信息、内部方案。仅供团队内部使用。</p>
+    </a>
+
+    <a href="client.html" class="card client">
+      <span class="icon">📋</span>
+      <span class="badge badge-client">客户交付版</span>
+      <h3>客户交付版</h3>
+      <p>自动脱敏成本数据、隐藏内部方案和代理商信息。适合发给客户查看和对外展示。</p>
+    </a>
+  </div>
+
+  <p class="info">
+    <strong>版本：V3.0</strong> | 基于闲鱼官方规则中心(2025.12-2026.07修订)<br>
+    管理入口（仅本地服务可用）：<a href="#" style="opacity:0.5">文档结构管理</a><br>
+    编辑入口（仅本地服务可用）：<a href="#" style="opacity:0.5">在线编辑内部版</a>
+  </p>
+</div>
+</body>
+</html>
